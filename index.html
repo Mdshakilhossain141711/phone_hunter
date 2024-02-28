@@ -1,14 +1,55 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="light">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>phone_hunter</title>
+
+
+    <!-- daisy UI CDN -->
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@4.7.2/dist/full.min.css" rel="stylesheet" type="text/css" />
+    <script src="https://cdn.tailwindcss.com"></script>
+
 </head>
 
 <body>
 
+    <div class="my-5 flex justify-center text-center gap-4">
+        <input id="search_field" type="text" placeholder="search..."
+            class="input input-bordered input-info w-full max-w-xs" />
+        <button onclick="handleSearch()" class="btn btn-accent">Search</button>
+    </div>
+
+    <div id="loading" class="my-5 hidden justify-center text-center gap-3">
+        <span class="loading loading-ring loading-md text-info mr-[2px]"></span>
+        <span class="loading loading-ring loading-lg text-info"></span>
+        <span class="loading loading-ring loading-md text-info"></span>
+    </div>
+    <main>
+        <div id="phone_container" class="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-4">
+        </div>
+        <div id="showAllBtn" class="hidden my-5 justify-center text-center gap-4">
+            <button onclick="handleShowAll()" class="btn btn-active btn-primary">Show ALL</button>
+        </div>
+    </main>
+
+
+    <!-- Open the modal using ID.showModal() method -->
+
+    <dialog id="my_details_modal" class="modal">
+        <div class="modal-box">
+            <form method="dialog">
+                <button class="btn btn-sm btn-circle btn-ghost absolute right-2 top-2">✕</button>
+            </form>
+            <div id="detailsContainer">
+
+            </div>
+        </div>
+        <form method="dialog" class="modal-backdrop">
+            <button>close</button>
+        </form>
+    </dialog>
 
 
 
